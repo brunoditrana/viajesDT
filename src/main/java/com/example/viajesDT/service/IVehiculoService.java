@@ -1,6 +1,6 @@
 package com.example.viajesDT.service;
 
-import com.example.viajesDT.model.Vehiculo;
+import com.example.viajesDT.entity.Vehiculo;
 
 public interface IVehiculoService {
 

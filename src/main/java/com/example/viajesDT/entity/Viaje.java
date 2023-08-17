@@ -1,4 +1,4 @@
-package com.example.viajesDT.model;
+package com.example.viajesDT.entity;
 
 import lombok.Data;
 

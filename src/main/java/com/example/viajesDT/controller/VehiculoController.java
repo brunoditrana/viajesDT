@@ -1,7 +1,7 @@
 package com.example.viajesDT.controller;
 
 
-import com.example.viajesDT.model.Vehiculo;
+import com.example.viajesDT.entity.Vehiculo;
 import com.example.viajesDT.service.IVehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

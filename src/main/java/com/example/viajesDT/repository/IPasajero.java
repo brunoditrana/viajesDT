@@ -1,6 +1,6 @@
 package com.example.viajesDT.repository;
 
-import com.example.viajesDT.model.Pasajero;
+import com.example.viajesDT.entity.Pasajero;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

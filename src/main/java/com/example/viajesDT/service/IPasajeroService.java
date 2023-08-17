@@ -1,6 +1,6 @@
 package com.example.viajesDT.service;
 
-import com.example.viajesDT.model.Pasajero;
+import com.example.viajesDT.entity.Pasajero;
 
 public interface IPasajeroService {
 

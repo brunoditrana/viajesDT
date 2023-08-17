@@ -1,10 +1,11 @@
 package com.example.viajesDT.service;
 
 
-import com.example.viajesDT.model.Chofer;
+import com.example.viajesDT.dto.ChoferDTO;
+import com.example.viajesDT.entity.Chofer;
 
 public interface IChoferService {
 
 
-    void createChofer(Chofer chof);
+    ChoferDTO createChofer(ChoferDTO chof);
 }

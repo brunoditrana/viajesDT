@@ -1,7 +1,11 @@
 package com.example.viajesDT.controller;
 
 
-import com.example.viajesDT.model.Chofer;
+
+import com.example.viajesDT.dto.ChoferDTO;
+import com.example.viajesDT.dto.request.ChoferRequest;
+import com.example.viajesDT.dto.response.ChoferResponse;
+import com.example.viajesDT.mapper.ChoferMapper;
 import com.example.viajesDT.service.IChoferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +23,11 @@ public class ChoferController {
 
 
     @PostMapping("/")
-    public Chofer createChofer(@RequestBody Chofer chof){
-        this.choferService.createChofer(chof);
-        return chof;
+    public ChoferResponse createChofer(@RequestBody ChoferRequest chof){
+
+        ChoferDTO choferDTO =  this.choferService.createChofer(ChoferMapper.INSTANCE.toDTO(chof));
+
+        return  ChoferMapper.INSTANCE.toResponse(choferDTO);
+
     }
 }

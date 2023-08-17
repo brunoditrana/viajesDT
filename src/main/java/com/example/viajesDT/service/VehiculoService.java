@@ -1,7 +1,7 @@
 package com.example.viajesDT.service;
 
 
-import com.example.viajesDT.model.Vehiculo;
+import com.example.viajesDT.entity.Vehiculo;
 import com.example.viajesDT.repository.IVehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
