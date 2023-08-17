@@ -1,6 +1,8 @@
 package com.example.viajesDT.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,18 +10,30 @@ import java.util.List;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Viaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id_viaje;
+    @Column(name = "id_viaje")
+    private Long idViaje;
 
     private String destino;
-    private Date fecha_salida;
-    private Date fecha_llegada;
+
+    @Column(name = "fecha_salida")
+    private Date fechaSalida;
+
+    @Column(name = "fecha_llegada")
+    private Date fechaLlegada;
+
     private Double precio;
-    private Date fecha_creacion;
-    private Date fecha_modificacion;
+
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
+
+    @Column(name = "fecha_modificacion")
+    private Date fechaModificacion;
 
     @ManyToMany
     @JoinTable(name = "viaje_chofer",
@@ -38,19 +52,5 @@ public class Viaje {
     private Vehiculo vehiculo;
 
 
-    public Viaje(Long id_viaje, String destino, Date fecha_salida, Date fecha_llegada, Double precio, Date fecha_creacion, Date fecha_modificacion, List<Chofer> lista_choferes, List<Pasajero> lista_pasajeros, Vehiculo vehiculo) {
-        this.id_viaje = id_viaje;
-        this.destino = destino;
-        this.fecha_salida = fecha_salida;
-        this.fecha_llegada = fecha_llegada;
-        this.precio = precio;
-        this.fecha_creacion = fecha_creacion;
-        this.fecha_modificacion = fecha_modificacion;
-        this.lista_choferes = lista_choferes;
-        this.lista_pasajeros = lista_pasajeros;
-        this.vehiculo = vehiculo;
-    }
 
-    public Viaje() {
-    }
 }

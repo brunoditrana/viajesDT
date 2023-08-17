@@ -17,7 +17,9 @@ public class Chofer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_chofer;
+    @Column(name = "id_chofer")
+    private Long idChofer;
+
 
     private String nombre;
     private String apellido;
@@ -28,10 +30,11 @@ public class Chofer {
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
-    private Date fecha_modificacion;
+    @Column(name = "fecha_modificacion")
+    private Date fechaModificacion;
 
-   // @ManyToMany(mappedBy = "lista_choferes")
-    //private List<Viaje> viajes_asignados;
+   @ManyToMany(mappedBy = "lista_choferes")
+    private List<Viaje> viajes_asignados;
 
 
 

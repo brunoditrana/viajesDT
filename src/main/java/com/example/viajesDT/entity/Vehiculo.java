@@ -1,44 +1,41 @@
 package com.example.viajesDT.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vehiculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id_vehiculo;
+    @Column(name = "id_vehiculo")
+    private Long idVehiculo;
 
-    private String tipo_vehiculo;
+    @Column(name = "tipo_vehiculo")
+    private String tipoVehiculo;
+
     private String modelo ;
     private String patente;
     private int capacidad;
-    private int km_recorridos;
+    @Column(name = "km_recorridos")
+    private int kmRecorridos;
     private String estado;
-    private Date fecha_creacion;
-    private Date fecha_modificacion;
+
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
+
+    @Column(name = "fecha_modificacion")
+    private Date fechaModificacion;
 
 
-    public Vehiculo() {
-    }
 
-    public Vehiculo(Long id_vehiculo, String tipo_vehiculo, String modelo, String patente, int capacidad, int km_recorridos, String estado, Date fecha_creacion, Date fecha_modificacion) {
-        this.id_vehiculo = id_vehiculo;
-        this.tipo_vehiculo = tipo_vehiculo;
-        this.modelo = modelo;
-        this.patente = patente;
-        this.capacidad = capacidad;
-        this.km_recorridos = km_recorridos;
-        this.estado = estado;
-        this.fecha_creacion = fecha_creacion;
-        this.fecha_modificacion = fecha_modificacion;
-    }
+
 }
