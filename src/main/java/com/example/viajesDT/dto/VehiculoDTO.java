@@ -1,41 +1,24 @@
-package com.example.viajesDT.entity;
-
+package com.example.viajesDT.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.Date;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Vehiculo {
+public class VehiculoDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id_vehiculo")
     private Long idVehiculo;
-
-    @Column(name = "tipo_vehiculo")
     private String tipoVehiculo;
-
     private String modelo ;
     private String patente;
     private Integer capacidad;
-    @Column(name = "km_recorridos")
     private Integer kmRecorridos;
     private String estado;
-
-    @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
-    @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
-
-
-
-
 }

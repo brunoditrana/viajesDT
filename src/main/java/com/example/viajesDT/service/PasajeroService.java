@@ -1,8 +1,10 @@
 package com.example.viajesDT.service;
 
 
+import com.example.viajesDT.adapter.PasajeroAdapter;
+import com.example.viajesDT.dto.PasajeroDTO;
 import com.example.viajesDT.entity.Pasajero;
-import com.example.viajesDT.repository.IPasajero;
+import com.example.viajesDT.repository.IPasajeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +13,13 @@ public class PasajeroService implements IPasajeroService{
 
 
     @Autowired
-    private IPasajero pasajeRepo;
+    private PasajeroAdapter pasajeroAdapter;
 
 
-    //Agregar un pasajero al sistema
+
     @Override
-    public void createPasajero(Pasajero pas) {
-        this.pasajeRepo.save(pas);
-    }
+    public PasajeroDTO createPasajero(PasajeroDTO pas) {
 
+        return pasajeroAdapter.save(pas);
+    }
 }

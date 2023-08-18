@@ -16,14 +16,14 @@ import java.util.List;
 public class Pasajero {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pasajero")
     private Long idPasajero;
 
     private String nombre;
     private String apellido;
-    private int telefono;
-    private int dni;
+    private Integer telefono;
+    private Integer dni;
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;

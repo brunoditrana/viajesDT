@@ -14,6 +14,7 @@ public interface ChoferMapper {
 
     ChoferMapper INSTANCE = Mappers.getMapper(ChoferMapper.class);
 
+    //Permite realizar conversiones entre entre Chofer y ChoferDTO
 
     @Mapping(source = "fechaCreacion", target = "fecha_creacion")
     @Mapping(constant = "9999999", target = "dni")
