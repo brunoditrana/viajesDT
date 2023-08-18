@@ -15,7 +15,7 @@ import java.util.Date;
 public class Vehiculo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vehiculo")
     private Long idVehiculo;
 

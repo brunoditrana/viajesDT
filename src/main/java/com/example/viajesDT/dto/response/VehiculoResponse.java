@@ -9,13 +9,12 @@ import javax.persistence.Column;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PasajeroResponse {
+public class VehiculoResponse {
 
-    @Column(name = "id_pasajero")
-    private Long id;
+    @Column(name = "id_vehiculo")
+    private Long idVehiculo;
 
-    private String nombre;
-    private String apellido;
-    private Integer telefono;
-
+    private String tipoVehiculo;
+    private Integer capacidad;
+    private String estado;
 }

@@ -1,7 +1,11 @@
 package com.example.viajesDT.controller;
 
 
+import com.example.viajesDT.dto.VehiculoDTO;
+import com.example.viajesDT.dto.request.VehiculoRequest;
+import com.example.viajesDT.dto.response.VehiculoResponse;
 import com.example.viajesDT.entity.Vehiculo;
+import com.example.viajesDT.mapper.VehiculoMapper;
 import com.example.viajesDT.service.IVehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +21,11 @@ public class VehiculoController {
     IVehiculoService vehiculoService;
 
     @PostMapping("/")
-    public Vehiculo createVehiculo(@RequestBody Vehiculo veh){
-        this.vehiculoService.createVehiculo(veh);
-        return veh;
+    public VehiculoResponse createVehiculo(@RequestBody VehiculoRequest vehiculoRequest){
+
+       VehiculoDTO dto = vehiculoService.createVehiculo(VehiculoMapper.INSTANCE.toDTO(vehiculoRequest));
+
+       return VehiculoMapper.INSTANCE.toResponse(dto);
     }
 
 }
