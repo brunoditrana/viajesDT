@@ -3,8 +3,9 @@ package com.example.viajesDT.service;
 
 import com.example.viajesDT.adapter.VehiculoAdapter;
 import com.example.viajesDT.dto.VehiculoDTO;
-import com.example.viajesDT.entity.Vehiculo;
-import com.example.viajesDT.repository.IVehiculoRepository;
+import com.example.viajesDT.dto.response.VehiculoGetResponse;
+import com.example.viajesDT.dto.response.VehiculoResponse;
+import com.example.viajesDT.mapper.VehiculoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,14 @@ public class VehiculoService implements IVehiculoService{
 
         return vehiculoAdapter.save(veh);
     }
+
+    @Override
+    public VehiculoDTO findById(Long id) {
+
+        return vehiculoAdapter.findById(id);
+
+    }
+
+
 }
 

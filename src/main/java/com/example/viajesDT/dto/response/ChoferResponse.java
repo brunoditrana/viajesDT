@@ -13,6 +13,6 @@ import javax.persistence.Column;
 public class ChoferResponse {
 
     @Column(name = "id_chofer")
-    private Long id;
+    private Long idChofer;
     private Integer dni;
 }

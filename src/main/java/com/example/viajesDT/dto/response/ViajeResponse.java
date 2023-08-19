@@ -17,11 +17,5 @@ public class ViajeResponse {
 
 
     private Long idViaje;
-    private String destino;
-    private Date fechaSalida;
-    private Date fechaLlegada;
-    private Double precio;
-    private List<Chofer> lista_choferes;
-    private List<Pasajero> lista_pasajeros;
-    private Vehiculo vehiculo;
+
 }
