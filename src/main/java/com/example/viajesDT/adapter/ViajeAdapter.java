@@ -6,4 +6,7 @@ import com.example.viajesDT.dto.ViajeDTO;
 public interface ViajeAdapter {
 
     ViajeDTO save(ViajeDTO viajeDTO);
+
+    ViajeDTO findById(Long id);
+
 }

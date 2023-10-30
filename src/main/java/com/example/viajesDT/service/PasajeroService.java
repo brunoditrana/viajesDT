@@ -22,4 +22,9 @@ public class PasajeroService implements IPasajeroService{
 
         return pasajeroAdapter.save(pas);
     }
+
+    @Override
+    public PasajeroDTO findById(Long id) {
+        return pasajeroAdapter.findById(id);
+    }
 }

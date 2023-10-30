@@ -17,4 +17,20 @@ public class ChoferService implements IChoferService{
       return this.choferAdap.save(chof);
 
     }
+
+    @Override
+    public ChoferDTO findById(Long id) {
+
+        ChoferDTO choferDTO = choferAdap.findById(id);
+        //consulto la tabla viajeChofer
+        //para la lista de viajes, obtener el id del viaje
+        //para cada id, consulto el viaje
+        //para cada viaje veo si la fecha de salida es posterio o anterior a hoy y lo guardo en dos listas
+        //la lista viajesRealizados la seteo en el DTO en el campo ViajesRealizados
+        //la lista viajesAsignados la seteo en el DTO en el campo ViajesAsignados
+
+ //       choferDTO.setViajesRealizados();
+ //       choferDTO.setViajes_asignados();
+        return choferDTO;
+    }
 }

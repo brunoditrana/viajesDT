@@ -17,11 +17,11 @@ public class ChoferConnector implements ChoferAdapter {
     @Autowired
     IChoferRepository choferRepo;
 
-    public ChoferDTO findById( Long id ) throws Exception{
+    public ChoferDTO findById( Long id ) {
 
-       Optional<Chofer> chofer = choferRepo.findById(id);
+      Optional<Chofer> chofer = choferRepo.findById(id);
 
-       return ChoferMapper.INSTANCE.toDTO(chofer.orElse(null));
+      return ChoferMapper.INSTANCE.toDTO(chofer.orElse(null));
 
     }
 

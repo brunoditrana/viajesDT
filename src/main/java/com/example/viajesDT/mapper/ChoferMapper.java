@@ -3,6 +3,7 @@ package com.example.viajesDT.mapper;
 
 import com.example.viajesDT.dto.ChoferDTO;
 import com.example.viajesDT.dto.request.ChoferRequest;
+import com.example.viajesDT.dto.response.ChoferGetResponse;
 import com.example.viajesDT.dto.response.ChoferResponse;
 import com.example.viajesDT.entity.Chofer;
 import org.mapstruct.Mapper;
@@ -14,7 +15,7 @@ public interface ChoferMapper {
 
     ChoferMapper INSTANCE = Mappers.getMapper(ChoferMapper.class);
 
-    //Permite realizar conversiones entre entre Chofer y ChoferDTO
+    //Permite realizar conversiones entre  Chofer y ChoferDTO
 
     @Mapping(source = "fechaCreacion", target = "fecha_creacion")
     @Mapping(constant = "9999999", target = "dni")
@@ -27,5 +28,7 @@ public interface ChoferMapper {
     ChoferDTO toDTO(ChoferRequest choferRequest);
 
     ChoferResponse toResponse (ChoferDTO choferDTO);
+
+    ChoferGetResponse toGetResponse(ChoferDTO choferDTO);
 
 }

@@ -7,10 +7,8 @@ import com.example.viajesDT.dto.response.ViajeResponse;
 import com.example.viajesDT.mapper.ViajeMapper;
 import com.example.viajesDT.service.IViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RequestMapping(path = "viajesDT/viaje")
 @RestController
 public class ViajeController {
@@ -24,6 +22,12 @@ public class ViajeController {
       ViajeDTO viajeDTO = viajeService.crearViaje(ViajeMapper.INSTANCE.toDTO(viajeRequest));
 
       return  ViajeMapper.INSTANCE.toResponse(viajeDTO);
+    }
+
+    @GetMapping("/{id}")
+    public ViajeDTO findById(@PathVariable Long id){
+
+        return viajeService.findById(id);
     }
 
 }

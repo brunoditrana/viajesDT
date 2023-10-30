@@ -2,6 +2,7 @@ package com.example.viajesDT.mapper;
 
 import com.example.viajesDT.dto.PasajeroDTO;
 import com.example.viajesDT.dto.request.PasajeroRequest;
+import com.example.viajesDT.dto.response.PasajeroGetResponse;
 import com.example.viajesDT.dto.response.PasajeroResponse;
 import com.example.viajesDT.entity.Pasajero;
 import org.mapstruct.Mapper;
@@ -24,4 +25,6 @@ public interface PasajeroMapper {
     PasajeroDTO toDTO(PasajeroRequest pasajeroRequest);
 
     PasajeroResponse toResponse(PasajeroDTO pasajeroDTO);
+
+    PasajeroGetResponse toGetResponse(PasajeroDTO dto);
 }

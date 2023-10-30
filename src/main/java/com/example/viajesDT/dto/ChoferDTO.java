@@ -24,6 +24,7 @@ public class ChoferDTO {
     private Boolean activo;
     private Date fecha_creacion;
     private Date fecha_modificacion;
-    private List<Viaje> viajes_asignados;
+    private List<ViajeDTO> viajes_asignados;
 
+    private List<ViajeDTO> viajesRealizados;
 }

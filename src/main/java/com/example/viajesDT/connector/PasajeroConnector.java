@@ -10,6 +10,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PasajeroConnector implements PasajeroAdapter {
 
@@ -23,4 +25,14 @@ public class PasajeroConnector implements PasajeroAdapter {
 
         return PasajeroMapper.INSTANCE.toDTO(pasajeroResponse);
     }
+
+    @Override
+    public PasajeroDTO findById(Long id) {
+
+       Optional<Pasajero> pasa = pasajeroRepo.findById(id);
+
+        return PasajeroMapper.INSTANCE.toDTO(pasa.orElse(null));
+    }
+
+
 }

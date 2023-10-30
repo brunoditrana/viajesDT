@@ -21,6 +21,7 @@ public interface ViajeMapper {
     @Mapping(target ="fechaCreacion", expression = "java(new Date())")
     Viaje toEntity(ViajeDTO viajeDTO);
 
+    @Mapping(source = "viajeRequest.vehiculo", target = "vehiculo.idVehiculo")
     ViajeDTO toDTO(ViajeRequest viajeRequest);
 
 

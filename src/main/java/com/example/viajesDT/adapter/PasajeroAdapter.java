@@ -7,4 +7,6 @@ public interface PasajeroAdapter {
 
 
     PasajeroDTO save(PasajeroDTO pasajeroDTO);
+
+    PasajeroDTO findById(Long id);
 }

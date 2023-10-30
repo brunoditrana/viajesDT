@@ -8,12 +8,16 @@ import com.example.viajesDT.repository.IViajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ViajeConnector implements ViajeAdapter {
 
     @Autowired
     private IViajeRepository viajeRepo;
 
+   // @Autowired
+   // private ViajeChoferRepository  viajeChoferRepository;
 
     @Override
     public ViajeDTO save(ViajeDTO viajeDTO) {
@@ -22,4 +26,22 @@ public class ViajeConnector implements ViajeAdapter {
 
       return ViajeMapper.INSTANCE.toDTO(viaje);
     }
+
+    @Override
+    public ViajeDTO findById(Long id) {
+
+        Optional<Viaje> viaje = viajeRepo.findById(id);
+
+        return ViajeMapper.INSTANCE.toDTO(viaje.orElse(null));
+    }
+
+  /*  @Override
+    public ViajeChoferDTO findViajeByIdChofer(Long id) {
+
+        Optional<ViajeChofer> viaje = viajeChoferRepository.findByIdChofer(id);
+
+        return ViajeMapper.INSTANCE.toDTO(viaje.orElse(null));
+    }
+
+   */
 }

@@ -8,7 +8,8 @@ public interface ChoferAdapter {
 
 
     //Puente entre el Service y el connector
-     ChoferDTO findById(Long id ) throws Exception;
 
-        ChoferDTO  save(ChoferDTO chofer);
+     ChoferDTO findById(Long id );
+
+     ChoferDTO  save(ChoferDTO chofer);
 }
