@@ -15,16 +15,16 @@ import java.util.List;
 public class ChoferDTO {
 
 
-    private Long id_chofer;
+    private Long idChofer;
 
     private String nombre;
     private String apellido;
     private Integer telefono;
     private Integer dni;
     private Boolean activo;
-    private Date fecha_creacion;
-    private Date fecha_modificacion;
-    private List<ViajeDTO> viajes_asignados;
+    private Date fechaCreacion;
+    private Date fechaModificacion;
+    private List<ViajeDTO> viajesAsignados;
 
     private List<ViajeDTO> viajesRealizados;
 }

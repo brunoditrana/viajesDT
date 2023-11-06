@@ -20,32 +20,29 @@ public class Viaje {
     private Long idViaje;
 
     private String destino;
-
     @Column(name = "fecha_salida")
     private Date fechaSalida;
-
     @Column(name = "fecha_llegada")
     private Date fechaLlegada;
-
     private Double precio;
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
     @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
+
 
     @ManyToMany
     @JoinTable(name = "viaje_chofer",
      joinColumns = @JoinColumn(name = "id_viaje"),
         inverseJoinColumns = @JoinColumn(name = "id_chofer"))
-    private List<Chofer> lista_choferes;
+    private List<Chofer> listaChoferes;
 
     @ManyToMany
     @JoinTable(name = "viaje_pasajero",
     joinColumns = @JoinColumn(name = "id_viaje"),
     inverseJoinColumns = @JoinColumn(name = "id_pasajero"))
-    private List<Pasajero> lista_pasajeros;
+    private List<Pasajero> listaPasajeros;
 
     @ManyToOne
     @JoinColumn(name = "id_vehiculo")

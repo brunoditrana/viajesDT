@@ -11,7 +11,6 @@ import javax.persistence.Column;
 @NoArgsConstructor
 public class VehiculoResponse {
 
-    @Column(name = "id_vehiculo")
     private Long idVehiculo;
 
     private String tipoVehiculo;

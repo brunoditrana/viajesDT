@@ -18,8 +18,8 @@ public class PasajeroDTO {
     private String apellido;
     private Integer telefono;
     private Integer dni;
-    private Date fecha_creacion;
-    private Date fecha_modificacion;
+    private Date fechaCreacion;
+    private Date fechaModificacion;
 
 
 }

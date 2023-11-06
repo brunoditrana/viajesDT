@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "chofer")
 public class Chofer {
 
     @Id
@@ -29,12 +30,11 @@ public class Chofer {
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
     @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
 
-   @ManyToMany(mappedBy = "lista_choferes")
-    private List<Viaje> viajes_asignados;
+   @ManyToMany(mappedBy = "listaChoferes")
+    private List<Viaje> viajesAsignados;
 
 
 

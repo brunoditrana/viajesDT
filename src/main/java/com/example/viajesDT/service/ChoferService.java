@@ -21,7 +21,7 @@ public class ChoferService implements IChoferService{
     @Override
     public ChoferDTO findById(Long id) {
 
-        ChoferDTO choferDTO = choferAdap.findById(id);
+        //ChoferDTO choferDTO = choferAdap.findById(id);
         //consulto la tabla viajeChofer
         //para la lista de viajes, obtener el id del viaje
         //para cada id, consulto el viaje
@@ -31,6 +31,6 @@ public class ChoferService implements IChoferService{
 
  //       choferDTO.setViajesRealizados();
  //       choferDTO.setViajes_asignados();
-        return choferDTO;
+        return choferAdap.findById(id);
     }
 }

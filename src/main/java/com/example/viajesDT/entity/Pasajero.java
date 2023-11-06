@@ -24,15 +24,13 @@ public class Pasajero {
     private String apellido;
     private Integer telefono;
     private Integer dni;
-
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
     @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
 
 
-    @ManyToMany(mappedBy = "lista_pasajeros")
+    @ManyToMany(mappedBy = "listaPasajeros")
     private List<Viaje>  viajes_asignados;
 
 

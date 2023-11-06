@@ -24,8 +24,8 @@ public class ViajeDTO {
     private Double precio;
     private Date fechaCreacion;
     private Date fechaModificacion;
-    private List<ChoferDTO> lista_choferes;
-    private List<PasajeroDTO> lista_pasajeros;
+    private List<ChoferDTO> listaChoferes;
+    private List<PasajeroDTO> listaPasajeros;
     private VehiculoDTO vehiculo;
 
 

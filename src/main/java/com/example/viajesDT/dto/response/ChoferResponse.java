@@ -12,7 +12,6 @@ import javax.persistence.Column;
 @NoArgsConstructor
 public class ChoferResponse {
 
-    @Column(name = "id_chofer")
     private Long idChofer;
     private Integer dni;
 }

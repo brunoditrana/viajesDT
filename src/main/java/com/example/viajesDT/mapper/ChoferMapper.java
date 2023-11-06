@@ -17,11 +17,11 @@ public interface ChoferMapper {
 
     //Permite realizar conversiones entre  Chofer y ChoferDTO
 
-    @Mapping(source = "fechaCreacion", target = "fecha_creacion")
-    @Mapping(constant = "9999999", target = "dni")
+    //@Mapping(constant = "9999999", target = "dni")
+    @Mapping(source = "fecha_creacion", target = "fecha_creacion")
     ChoferDTO toDTO(Chofer chofer);
 
-    @Mapping(source = "fecha_creacion", target = "fechaCreacion")
+    @Mapping(source = "fecha_creacion", target = "fecha_creacion")
     Chofer toEntity(ChoferDTO choferDTO);
 
 

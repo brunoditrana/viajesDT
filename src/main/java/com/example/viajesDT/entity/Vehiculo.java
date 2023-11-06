@@ -21,7 +21,6 @@ public class Vehiculo {
 
     @Column(name = "tipo_vehiculo")
     private String tipoVehiculo;
-
     private String modelo ;
     private String patente;
     private Integer capacidad;
@@ -31,10 +30,8 @@ public class Vehiculo {
 
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-
     @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
-
 
 
 

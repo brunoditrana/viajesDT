@@ -15,5 +15,6 @@ public class ChoferRequest {
     private String apellido;
     private Integer telefono;
     private Integer dni;
+    private Boolean activo;
 
 }
