@@ -26,6 +26,7 @@ public class ViajeConnector implements ViajeAdapter {
     public ViajeDTO save(ViajeDTO viajeDTO) {
 
       Viaje viaje = viajeRepo.save(ViajeMapper.INSTANCE.toEntity(viajeDTO));
+      //A parti del viaje .id gaurdar en ViajeChoferrepository los choferes y el viaje
 
       return ViajeMapper.INSTANCE.toDTO(viaje);
     }

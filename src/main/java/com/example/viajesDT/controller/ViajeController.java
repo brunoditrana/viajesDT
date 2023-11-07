@@ -19,15 +19,19 @@ public class ViajeController {
     @PostMapping("/")
     public ViajeResponse createViaje(@RequestBody ViajeRequest viajeRequest){
 
-      ViajeDTO viajeDTO = viajeService.crearViaje(ViajeMapper.INSTANCE.toDTO(viajeRequest));
+     ViajeDTO  viajeDTO =  viajeService.crearViaje(ViajeMapper.INSTANCE.toRequestDTO(viajeRequest));
 
       return  ViajeMapper.INSTANCE.toResponse(viajeDTO);
+
+      // Consultar el Chofer por el ID
     }
 
     @GetMapping("/{id}")
     public ViajeDTO findById(@PathVariable Long id){
 
+
         return viajeService.findById(id);
+
     }
 
 }

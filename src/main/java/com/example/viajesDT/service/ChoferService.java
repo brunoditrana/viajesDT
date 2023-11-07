@@ -6,6 +6,8 @@ import com.example.viajesDT.dto.ChoferDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ChoferService implements IChoferService{
 
@@ -32,5 +34,10 @@ public class ChoferService implements IChoferService{
  //       choferDTO.setViajesRealizados();
  //       choferDTO.setViajes_asignados();
         return choferAdap.findById(id);
+    }
+
+    @Override
+    public ChoferDTO findByAllId(List<Long> id) {
+        return null;
     }
 }

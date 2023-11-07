@@ -1,6 +1,6 @@
 package com.example.viajesDT.mapper;
 
-import com.example.viajesDT.dto.PasajeroDTO;
+
 import com.example.viajesDT.dto.VehiculoDTO;
 import com.example.viajesDT.dto.request.VehiculoRequest;
 import com.example.viajesDT.dto.response.VehiculoGetResponse;

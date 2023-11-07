@@ -21,11 +21,11 @@ public class ViajeChoferController {
     @Autowired
     private IViajeChoferRepository viajeChoferRepos;
 
-    @GetMapping("/{id}")
-    public ViajeChoferResponse findViajeByIdChofer(@PathVariable Long id){
+  /*   @GetMapping("/{id}")
+   public ViajeChoferResponse findViajeByIdChofer(@PathVariable Long id){
 
         Optional<ViajeChofer> viajeChoferDTO = viajeChoferRepos.findByIdChofer(id);
 
         return ViajeMapper.INSTANCE.toResponse(viajeChoferDTO);
-    }
+    */
 }
