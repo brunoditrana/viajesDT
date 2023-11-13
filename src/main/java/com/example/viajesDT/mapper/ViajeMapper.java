@@ -22,7 +22,6 @@ public interface ViajeMapper {
 
     ViajeMapper INSTANCE = Mappers.getMapper(ViajeMapper.class);
 
-
     ViajeDTO toDTO(Viaje viaje);
 
     @Mapping(target ="fechaCreacion", expression = "java(new Date())")

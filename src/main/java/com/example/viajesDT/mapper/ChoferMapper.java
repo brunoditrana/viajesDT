@@ -6,6 +6,7 @@ import com.example.viajesDT.dto.request.ChoferRequest;
 import com.example.viajesDT.dto.response.ChoferGetResponse;
 import com.example.viajesDT.dto.response.ChoferResponse;
 import com.example.viajesDT.entity.Chofer;
+import com.example.viajesDT.entity.Viaje;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -19,6 +20,7 @@ public interface ChoferMapper {
 
     //@Mapping(constant = "9999999", target = "dni")
     @Mapping(source = "fechaCreacion", target = "fechaCreacion")
+    @Mapping(source = "viajesAsignados.idViaje", target = "viajesAsignados")
     ChoferDTO toDTO(Chofer chofer);
 
     @Mapping(source = "fechaCreacion", target = "fechaCreacion")
@@ -26,6 +28,9 @@ public interface ChoferMapper {
 
 
     ChoferDTO toDTO(ChoferRequest choferRequest);
+
+
+    Long getId(Viaje viaje);
 
     ChoferResponse toResponse (ChoferDTO choferDTO);
 

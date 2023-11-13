@@ -36,6 +36,7 @@ public class ViajeConnector implements ViajeAdapter {
 
         Optional<Viaje> viaje = viajeRepo.findById(id);
 
+
         return ViajeMapper.INSTANCE.toDTO(viaje.orElse(null));
     }
 

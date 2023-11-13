@@ -1,8 +1,11 @@
 package com.example.viajesDT.dto.response;
 
+import com.example.viajesDT.dto.ViajeDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,4 +18,8 @@ public class ChoferGetResponse {
     private Integer telefono;
     private Integer dni;
     private Boolean activo;
+
+    private List<Long> viajesAsignados;
+
+    private List<Long> viajesRealizados;
 }

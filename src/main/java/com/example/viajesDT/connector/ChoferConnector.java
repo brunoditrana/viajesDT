@@ -19,9 +19,14 @@ public class ChoferConnector implements ChoferAdapter {
 
     public ChoferDTO findById( Long id ) {
 
-      Optional<Chofer> chofer = choferRepo.findById(id);
+      Chofer chofer = choferRepo.findById(id).orElse(null);
 
-      return ChoferMapper.INSTANCE.toDTO(chofer.orElse(null));
+        if (chofer == null) {
+            // Agrega un log para identificar que no se encontró el Chofer con el ID dado
+            System.out.println("No se encontró el Chofer con el ID: " + id);
+        }
+
+      return ChoferMapper.INSTANCE.toDTO(chofer);
 
     }
 

@@ -36,5 +36,4 @@ public class Chofer {
     private List<Viaje> viajesAsignados;
 
 
-
 }

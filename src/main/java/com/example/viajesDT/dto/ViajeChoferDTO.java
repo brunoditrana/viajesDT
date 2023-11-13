@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -12,14 +13,15 @@ import java.util.Date;
 @NoArgsConstructor
 public class ViajeChoferDTO {
 
-    private Long idChofer;
 
-    private Integer capacidad;
 
-    private String destino;
-    private Date fechaSalida;
-    private Date fechaLlegada;
-    private Double precio;
-    private VehiculoDTO vehiculo;
+        private Long idViajeChofer;
+
+        private Long idViaje;
+
+        private Long idChofer;
+
+        private boolean pagado;
+
 
 }
