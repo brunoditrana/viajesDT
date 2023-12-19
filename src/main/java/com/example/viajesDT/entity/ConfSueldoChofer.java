@@ -15,7 +15,7 @@ public class ConfSueldoChofer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_conf_sueldo_chofer")
-    private Long confSueldoChofer;
+    private Long idConfSueldoChofer;
 
     @Column(name = "id_chofer")
     private Long idChofer;

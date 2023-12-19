@@ -1,12 +1,8 @@
 package com.example.viajesDT.service;
 
 
-import com.example.viajesDT.adapter.ChoferAdapter;
-import com.example.viajesDT.adapter.ViajeAdapter;
-import com.example.viajesDT.adapter.ViajeChoferAdapter;
-import com.example.viajesDT.dto.ChoferDTO;
-import com.example.viajesDT.dto.ViajeChoferDTO;
-import com.example.viajesDT.dto.ViajeDTO;
+import com.example.viajesDT.adapter.*;
+import com.example.viajesDT.dto.*;
 import com.example.viajesDT.dto.response.DeudaAChoferesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +22,16 @@ public class ChoferService implements IChoferService{
     @Autowired
     private ViajeAdapter viajeAdapter;
 
+
     @Autowired
     private ViajeChoferAdapter viajeChoferAdap;
+
+    @Autowired
+    private ViajePasajeroAdapter viajePasajeroAdap ;
+
+    @Autowired
+    private ConfSueldoChoferAdapter confSueldoAdapter;
+
 
     @Override
     public ChoferDTO createChofer(ChoferDTO chof) {
@@ -129,9 +133,9 @@ public class ChoferService implements IChoferService{
 
     //Pagarle a un chofer
     @Override
-    public void pagarleAUnChofer(Integer id) {
+    public void pagarleAUnChofer(Integer dni) {
 
-       ChoferDTO choferDTO = choferAdap.findByDni(id);
+       ChoferDTO choferDTO = choferAdap.findByDni(dni);
 
         if (choferDTO == null) {
             throw new RuntimeException("No se encontro el chofer en la base de datos");
@@ -139,6 +143,33 @@ public class ChoferService implements IChoferService{
 
         List<ViajeChoferDTO> list = viajeChoferAdap.findByChoferId(choferDTO.getIdChofer());
 
+        for (ViajeChoferDTO viajeChofer: list) {
+
+            int cantidad;
+            double precio, total, sueldoChofer;
+            if (viajeChofer.getPagado().equals(false)){
+
+              ViajePasajeroDTO viajePasajeroDTO = viajePasajeroAdap.findById(viajeChofer.getIdViaje());
+
+              ViajeDTO viajeDTO = viajeAdapter.findById(viajePasajeroDTO.getIdViaje());
+
+              List<PasajeroDTO> listaPasajeros = viajeDTO.getListaPasajeros();
+
+                cantidad = listaPasajeros.size();
+
+               precio = viajeDTO.getPrecio();
+
+               total = precio * cantidad;
+
+                ConfSueldoChoferDTO confSueldoDTO = confSueldoAdapter.findByChoferId(choferDTO.getIdChofer());
+
+                sueldoChofer = confSueldoDTO.getPorcentaje() * total / 100;
+
+                viajeChofer.setPagado(true);
+
+
+            }
+        }
 
     }
 }
