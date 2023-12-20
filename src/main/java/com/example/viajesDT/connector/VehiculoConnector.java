@@ -31,4 +31,9 @@ public class VehiculoConnector implements VehiculoAdapter {
         Optional<Vehiculo> veh = vehiculoRepo.findById(id);
         return VehiculoMapper.INSTANCE.toDTO(veh.orElse(null));
     }
+
+    @Override
+    public void deleteVehiculo(Long id) {
+        vehiculoRepo.deleteById(id);
+    }
 }

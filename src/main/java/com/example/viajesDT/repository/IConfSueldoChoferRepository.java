@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IConfSueldoChoferRepository extends JpaRepository<ConfSueldoChofer,Long> {
 
-    ConfSueldoChofer findByChoferId(Long choferId);
+    ConfSueldoChofer findByIdChofer(Long choferId);
 }

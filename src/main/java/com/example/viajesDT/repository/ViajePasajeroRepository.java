@@ -11,4 +11,9 @@ import java.util.List;
 public interface ViajePasajeroRepository extends JpaRepository<ViajePasajero,Long> {
 
     List<ViajePasajero> findByIdViaje(Long id);
+
+    List<ViajePasajero> findByIdPasajero(Long id);
+
+
+
 }

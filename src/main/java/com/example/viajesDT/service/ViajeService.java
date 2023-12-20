@@ -6,6 +6,7 @@ import com.example.viajesDT.dto.ChoferDTO;
 import com.example.viajesDT.dto.VehiculoDTO;
 import com.example.viajesDT.dto.ViajeChoferDTO;
 import com.example.viajesDT.dto.ViajeDTO;
+import com.example.viajesDT.dto.request.ViajeEditRequest;
 import com.example.viajesDT.dto.request.dto.ViajeRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -126,5 +127,24 @@ public class ViajeService implements IViajeService{
     public List<ViajeChoferDTO> findViajeByIdChofer(Long idChofer){
 
         return viajeAdapter.findViajeByIdChofer(idChofer);
+    }
+
+    //Actualizar un viaje
+    @Override
+    public void editViaje(ViajeEditRequest requet) {
+
+        ViajeDTO viajeDTO = viajeAdapter.findById(requet.getIdViaje());
+
+        viajeDTO.setDestino(requet.getDestino());
+        viajeDTO.setFechaSalida(requet.getFechaSalida());
+        viajeDTO.setFechaLlegada(requet.getFechaLlegada());
+        viajeDTO.setPrecio(requet.getPrecio());
+
+        viajeAdapter.save(viajeDTO);
+    }
+
+    @Override
+    public void deleteViaje(Long id) {
+        viajeAdapter.deleteViaje(id);
     }
 }

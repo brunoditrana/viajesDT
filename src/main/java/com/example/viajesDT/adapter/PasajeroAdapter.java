@@ -3,6 +3,8 @@ package com.example.viajesDT.adapter;
 import com.example.viajesDT.dto.PasajeroDTO;
 import com.example.viajesDT.dto.request.ViajePasajeroRequest;
 
+import java.util.List;
+
 public interface PasajeroAdapter {
 
 
@@ -12,5 +14,9 @@ public interface PasajeroAdapter {
 
     PasajeroDTO findByDni(Integer dni);
 
-     void pasajeroAUnViaje(ViajePasajeroRequest requets);
+    List<PasajeroDTO> findAllByDni(Integer dni);
+
+   //  void pasajeroAUnViaje(ViajePasajeroRequest requets);
+
+    void deletePasajero(Long id);
 }

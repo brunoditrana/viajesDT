@@ -57,5 +57,11 @@ public class ViajeConnector implements ViajeAdapter {
         return ViajeMapper.INSTANCE.toListViajeDto(viaje);
     }
 
+    @Override
+    public void deleteViaje(Long id) {
+
+        viajeRepo.deleteById(id);
+    }
+
 
 }

@@ -14,4 +14,6 @@ public interface ViajeAdapter {
     List<ViajeChoferDTO> findViajeByIdChofer(Long id);
 
     List<ViajeDTO> findAllViajesPendientes();
+
+    void deleteViaje(Long id);
 }

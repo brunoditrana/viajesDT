@@ -10,5 +10,9 @@ public interface ViajePasajeroAdapter {
     ViajePasajeroDTO findById(Long id);
 
 
-    List<ViajePasajeroDTO> findByViajeId(Long id);
+    List<ViajePasajeroDTO> findByIdViaje(Long id);
+
+    List<ViajePasajeroDTO> findByIdPasajero(Long id);
+
+
 }

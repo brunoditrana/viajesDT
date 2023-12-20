@@ -16,7 +16,9 @@ public interface IChoferService {
 
     List<DeudaAChoferesResponse> deudaAChoferes();
 
-    ChoferDTO findByDni(Integer id);
+    ChoferDTO findByDni(Integer dni);
 
-    void pagarleAUnChofer(Integer id);
+    void pagarleAUnChofer(Integer dni);
+
+    void deleteChofer(Long id);
 }

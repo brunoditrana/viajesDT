@@ -6,7 +6,9 @@ import com.example.viajesDT.entity.ConfSueldoChofer;
 import com.example.viajesDT.mapper.ConfSueldoChoferMapper;
 import com.example.viajesDT.repository.IConfSueldoChoferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ConfSueldoChoferConnector implements ConfSueldoChoferAdapter {
 
 
@@ -14,9 +16,9 @@ public class ConfSueldoChoferConnector implements ConfSueldoChoferAdapter {
     private IConfSueldoChoferRepository repo;
 
     @Override
-    public ConfSueldoChoferDTO findByChoferId(Long choferId) {
+    public ConfSueldoChoferDTO findByIdChofer(Long choferId) {
 
-        ConfSueldoChofer conf = repo.findByChoferId(choferId);
+        ConfSueldoChofer conf = repo.findByIdChofer(choferId);
 
         return ConfSueldoChoferMapper.INSTANCE.toDTO(conf);
     }

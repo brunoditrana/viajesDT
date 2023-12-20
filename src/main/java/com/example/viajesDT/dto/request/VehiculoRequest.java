@@ -12,7 +12,7 @@ import javax.persistence.Column;
 public class VehiculoRequest {
 
 
-
+    private Long idVehiculo;
     private String tipoVehiculo;
     private String modelo ;
     private String patente;

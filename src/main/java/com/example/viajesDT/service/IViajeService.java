@@ -1,6 +1,7 @@
 package com.example.viajesDT.service;
 
 import com.example.viajesDT.dto.ViajeDTO;
+import com.example.viajesDT.dto.request.ViajeEditRequest;
 import com.example.viajesDT.dto.request.dto.ViajeRequestDTO;
 
 import java.util.List;
@@ -13,4 +14,8 @@ public interface IViajeService {
     ViajeDTO findById(Long id);
 
     List<ViajeDTO> findAllViajesPendientes();
+
+    void editViaje(ViajeEditRequest requet);
+
+    void  deleteViaje(Long id);
 }

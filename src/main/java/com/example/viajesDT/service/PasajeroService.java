@@ -9,11 +9,14 @@ import com.example.viajesDT.dto.PasajeroDTO;
 import com.example.viajesDT.dto.VehiculoDTO;
 import com.example.viajesDT.dto.ViajeDTO;
 import com.example.viajesDT.dto.ViajePasajeroDTO;
+import com.example.viajesDT.dto.request.ViajeEditRequest;
 import com.example.viajesDT.dto.request.ViajePasajeroRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -49,6 +52,31 @@ public class PasajeroService implements IPasajeroService{
         return pasajeroAdapter.findByDni(dni);
     }
 
+
+    //Retornar todos los viajes de un pasajero
+    @Override
+    public List<ViajeDTO>findAllByDni(Integer dni) {
+
+       PasajeroDTO pasajero = pasajeroAdapter.findByDni(dni);
+
+        List<ViajePasajeroDTO> lista = viajePasajeroAdapter.findByIdPasajero(pasajero.getIdPasajero());
+
+        List<ViajeDTO> viajeResponse = new ArrayList<>();
+        for (ViajePasajeroDTO viajeDTO: lista) {
+            ViajeDTO viajeDto = viajeAdapter.findById(viajeDTO.getIdViaje());
+
+            if (viajeDto.getFechaSalida().after(new Date())){
+
+                viajeDto.setDestino(viajeDto.getDestino());
+                viajeDto.setFechaSalida(viajeDto.getFechaSalida());
+                viajeResponse.add(viajeDto);
+            }
+
+        }
+
+        return viajeResponse;
+    }
+
     public void pasajeroAUnViaje(ViajePasajeroRequest requets) {
 
         try {
@@ -67,11 +95,11 @@ public class PasajeroService implements IPasajeroService{
             } else {
                 throw new RuntimeException("El vehiculo no se encuentra habilitado");
             }
-/// Buscar en la lisa viajePasajero
+        /// Buscar en la lisa viajePasajero
 
             PasajeroDTO pasajeroDTO = pasajeroAdapter.findById(requets.getIdPasajero());
 
-            List<ViajePasajeroDTO> listaPasajeros = viajePasajeroAdapter.findByViajeId(viaje.getIdViaje());
+            List<ViajePasajeroDTO> listaPasajeros = viajePasajeroAdapter.findByIdViaje(viaje.getIdViaje());
 
 
             int cantidadPasajeros = listaPasajeros.size();
@@ -90,4 +118,27 @@ public class PasajeroService implements IPasajeroService{
             log.error(e.getMessage());
         }
     }
+
+    @Override
+    public void deletePasajero(Integer dni, String destino) {
+
+      PasajeroDTO pasajeroDTO = pasajeroAdapter.findByDni(dni);
+
+        List<ViajeDTO> viaje = findAllByDni(dni);
+
+
+        for (ViajeDTO viajes: viaje) {
+
+            if (viajes.getDestino().equals(destino)){
+
+                viajes.getListaPasajeros().remove(pasajeroDTO);
+                viajeAdapter.save(viajes);
+
+            }else {
+                throw new RuntimeException("No se encontro ningun viaje con ese destino");
+            }
+        }
+    }
+
+
 }

@@ -8,4 +8,6 @@ public interface VehiculoAdapter {
     VehiculoDTO save(VehiculoDTO vehiculoDTO);
 
     VehiculoDTO findById(Long id);
+
+    void deleteVehiculo(Long id);
 }

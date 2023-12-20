@@ -9,6 +9,7 @@ import com.example.viajesDT.entity.Vehiculo;
 import com.example.viajesDT.mapper.VehiculoMapper;
 import com.example.viajesDT.service.IVehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(path = "viajesDT/vehiculo")
@@ -33,5 +34,23 @@ public class VehiculoController {
        VehiculoDTO vehi = vehiculoService.findById(id);
 
        return VehiculoMapper.INSTANCE.toResponseGet(vehi);
+    }
+
+    @PutMapping("/editar/")
+    public ResponseEntity<String> editoVehiculo (@RequestBody VehiculoRequest request){
+
+
+        vehiculoService.editVehiculo(request);
+
+        return  ResponseEntity.ok("El Vehiculo fue Editado exitosamente" );
+    }
+
+
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String> deleteVehiculo(@PathVariable Long id){
+
+        vehiculoService.deleteVehiculo(id);
+        return  ResponseEntity.ok("El Vehiculo fue Eliminado exitosamente" );
+
     }
 }

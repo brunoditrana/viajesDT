@@ -52,7 +52,15 @@ public class ChoferController {
     @PutMapping("/{dni}")
     public ResponseEntity<String>  pagarleAUnChofer(@PathVariable Integer dni){
 
+        choferService.pagarleAUnChofer(dni);
+        return  ResponseEntity.ok("El chofer fue abonado correctamente" );
+    }
 
-        return  ResponseEntity.ok("Pasajero fue agregado al viaje exitosamente" );
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String>   deleteChofer(@PathVariable Long id){
+
+        choferService.deleteChofer(id);
+        return  ResponseEntity.ok("El chofer fue eliminado exitosamente" );
+
     }
 }

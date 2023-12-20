@@ -2,11 +2,13 @@ package com.example.viajesDT.controller;
 
 
 import com.example.viajesDT.dto.ViajeDTO;
+import com.example.viajesDT.dto.request.ViajeEditRequest;
 import com.example.viajesDT.dto.request.ViajeRequest;
 import com.example.viajesDT.dto.response.ViajeResponse;
 import com.example.viajesDT.mapper.ViajeMapper;
 import com.example.viajesDT.service.IViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,4 +46,22 @@ public class ViajeController {
         return ViajeMapper.INSTANCE.toListViajeResponse(viaje);
     }
 
+
+    // Modificar viaje de un pasajero: Cambiar de hora de salida, persona q viaja
+
+    @PutMapping("/edit/")
+    public ResponseEntity<String> editPersona(@RequestBody ViajeEditRequest request){
+
+        viajeService.editViaje(request);
+
+        return  ResponseEntity.ok("El Viaje fue Editado exitosamente" );
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String> deleteViaje(@PathVariable Long id){
+
+        viajeService.deleteViaje(id);
+
+        return  ResponseEntity.ok("El Viaje fue Eliminado exitosamente" );
+    }
 }

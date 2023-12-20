@@ -1,12 +1,16 @@
 package com.example.viajesDT.mapper;
 
 import com.example.viajesDT.dto.PasajeroDTO;
+import com.example.viajesDT.dto.ViajePasajeroDTO;
 import com.example.viajesDT.dto.request.PasajeroRequest;
 import com.example.viajesDT.dto.response.PasajeroGetResponse;
 import com.example.viajesDT.dto.response.PasajeroResponse;
+import com.example.viajesDT.dto.response.ViajeResponse;
 import com.example.viajesDT.entity.Pasajero;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 @Mapper
 public interface PasajeroMapper {
@@ -27,4 +31,8 @@ public interface PasajeroMapper {
     PasajeroResponse toResponse(PasajeroDTO pasajeroDTO);
 
     PasajeroGetResponse toGetResponse(PasajeroDTO dto);
+
+    List<PasajeroDTO> toListDTO(List<Pasajero> pas);
+
+    List<ViajeResponse> toListResponse(List<ViajePasajeroDTO> list);
 }

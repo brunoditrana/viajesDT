@@ -26,12 +26,21 @@ public class ViajePasajeroConnector implements ViajePasajeroAdapter {
 
 
     @Override
-    public List<ViajePasajeroDTO> findByViajeId(Long id) {
+    public List<ViajePasajeroDTO> findByIdViaje(Long id) {
 
         List<ViajePasajero> viajePasajeros = viajePasajeroRepository.findByIdViaje(id);
         return ViajePasajeroMapper.INSTANCE.toListDTO(viajePasajeros);
 
     }
+
+    @Override
+    public List<ViajePasajeroDTO> findByIdPasajero(Long id) {
+        List<ViajePasajero> viaje = viajePasajeroRepository.findByIdPasajero(id);
+
+        return ViajePasajeroMapper.INSTANCE.toListDTO(viaje);
+    }
+
+
 
 
 }

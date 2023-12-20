@@ -46,4 +46,11 @@ public class ChoferConnector implements ChoferAdapter {
         return ChoferMapper.INSTANCE.toDTO(chofer);
     }
 
+    @Override
+    public void deleteChofer(Long id) {
+
+        choferRepo.deleteById(id);
+
+    }
+
 }

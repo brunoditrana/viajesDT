@@ -10,6 +10,7 @@ import com.example.viajesDT.repository.IPasajeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,8 +42,18 @@ public class PasajeroConnector implements PasajeroAdapter {
     }
 
     @Override
-    public void pasajeroAUnViaje(ViajePasajeroRequest requets) {
+    public List<PasajeroDTO> findAllByDni(Integer dni) {
+        List<Pasajero> pas = pasajeroRepo.findAllByDni(dni);
 
+        return PasajeroMapper.INSTANCE.toListDTO(pas);
+    }
+
+
+
+    @Override
+    public void deletePasajero(Long id) {
+
+        pasajeroRepo.deleteById(id);
 
     }
 

@@ -6,5 +6,5 @@ import com.example.viajesDT.entity.ConfSueldoChofer;
 public interface ConfSueldoChoferAdapter {
 
 
-    ConfSueldoChoferDTO findByChoferId(Long choferId);
+    ConfSueldoChoferDTO findByIdChofer(Long choferId);
 }

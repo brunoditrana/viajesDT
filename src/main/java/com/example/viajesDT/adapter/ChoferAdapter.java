@@ -14,4 +14,6 @@ public interface ChoferAdapter {
      ChoferDTO  save(ChoferDTO chofer);
 
      ChoferDTO findByDni(Integer id);
+
+     void deleteChofer(Long id);
 }

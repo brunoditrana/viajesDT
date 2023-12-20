@@ -161,7 +161,7 @@ public class ChoferService implements IChoferService{
 
                total = precio * cantidad;
 
-                ConfSueldoChoferDTO confSueldoDTO = confSueldoAdapter.findByChoferId(choferDTO.getIdChofer());
+                ConfSueldoChoferDTO confSueldoDTO = confSueldoAdapter.findByIdChofer(choferDTO.getIdChofer());
 
                 sueldoChofer = confSueldoDTO.getPorcentaje() * total / 100;
 
@@ -171,5 +171,10 @@ public class ChoferService implements IChoferService{
             }
         }
 
+    }
+
+    @Override
+    public void deleteChofer(Long id) {
+        choferAdap.deleteChofer(id);
     }
 }
